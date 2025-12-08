@@ -3,8 +3,9 @@
     <h2>Your Cart</h2>
 
     <!-- Empty Cart Message -->
-    <div v-if="items.length === 0">
-      <p>Your cart is empty</p>
+    <div v-if="items.length === 0" class="empty-cart">
+
+    <p>Your cart is empty</p>
     </div>
 
     <!-- Cart Items -->
@@ -24,10 +25,10 @@
     </div>
 
     <!-- Clear Cart Button With Confirmation -->
-    <button v-if="items.length > 0" class="clear-btn" @click="confirmClearCart"
-        >
-      Clear Cart
-    </button>
+    <div v-if="items.length > 0" class="cart-actions">
+        <button class="clear-btn" @click="confirmClearCart">Clear Cart</button>
+        <button class="checkout-btn" @click="$emit('go-to-checkout')">Checkout</button>
+    </div>
   </div>
 </template>
 
@@ -82,7 +83,7 @@ export default {
 }
 
 .cart button {
-    background-color: #ff6b6b;
+    background-color: #0078d4;
     color: white;
     border: none;
     padding: 6px 12px; 
@@ -93,7 +94,7 @@ export default {
 }
 
 .cart button:hover {
-    background-color: #e85c5c;
+    background-color: #005fa3;
 }
 
 .total {
@@ -114,7 +115,28 @@ export default {
     background-color: #999;
 }
 
-clear-button:hover {
+.clear-button:hover {
     background-color: #777;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.checkout-btn {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #005fa3;
 }
 </style>
