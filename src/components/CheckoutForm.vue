@@ -16,17 +16,16 @@
 </template>
 
 <script>
-import { createOrder } from "../api/api.js";
 export default {
   name: "checkoutForm",
- props: {
-  nameError: String,
-  phoneError: String,
-  cart: {
-    type: Array,
-    required: true
-  }
-},
+  props: {
+    nameError: String,
+    phoneError: String,
+    cart: {
+      type: Array,
+      required: true
+    }
+  },
 
   data() {
     return {
@@ -47,25 +46,11 @@ export default {
         alert("Please enter both name and phone number.");
         return;
       }
-       try {
-        for (const lesson of this.cart) {
-          // Create the order
-          await createOrder({
-            name: this.name,
-            phone: this.phone,
-            lessonId: lesson._id,
-          });
-
-          // Decrement lesson spaces
-          await updateLessonSpaces(lesson._id, -1);
-        }
-
-        alert("Booking successful!");
-        this.$emit("checkout-success");
-      } catch (err) {
-        console.error("Checkout error:", err);
-        alert("Failed to submit booking. Please try again.");
-      }
+      // Emit the checkout details to parent component
+      this.$emit("checkout-submit", {
+        name: this.name,
+        phone: this.phone,
+      });
     },
   },
 };

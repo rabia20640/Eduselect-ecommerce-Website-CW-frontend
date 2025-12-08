@@ -1,13 +1,10 @@
 <template>
   <!--Section container for showing a grid of lesson cards -->
   <section class="lesson-grid">
-    <!-- Loading and error states -->
-     <p v-if="loading"> Loading lessons... </p>
-     <p v-if="error">{{ error }}</p>
     <!-- Loop through each lesson in the lessons prop and render a LessonCard component -->
     <lesson-card
       v-for="lesson in lessons"
-      :key="lesson._id"
+      :key="lesson.id"
       :lesson="lesson"
       @add-to-cart="$emit('add-to-cart', $event)"
     />
@@ -18,26 +15,15 @@
 <script>
 // Import the LessonCard component used to show individual lesson details
 import LessonCard from "./LessonCard.vue";
- import { fetchLessons } from "../api/api.js"
+
 export default {
   name: "LessonGrid",
   components: { LessonCard },
-  data() {
-    return {
-      lessons: [],
-      loading: true,
-      error: null,
-    };
-  },
-  async created() {
-    try {
-      this.lessons = await fetchLessons(); // call backend
-    } catch (err) {
-      this.error = "Failed to load lessons.";
-      console.error(err);
-    } finally {
-      this.loading = false;
-    }
+  props: {
+    lessons: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
