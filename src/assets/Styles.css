@@ -105,26 +105,6 @@ body {
     margin-bottom: 6px;
 }
 
-/* Buttons */
-button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #e85c5c;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
 
 /* Sort Panel */
 .sort-panel {
@@ -153,7 +133,7 @@ button:disabled {
 
 .checkout-form input {
     padding: 10px;
-    border: 1px soiid #ccc;
+    border: 1px solid #ccc;
     border-radius: 6px;
 }
 
@@ -183,26 +163,92 @@ button:disabled {
     box-shadow: 0 0 4px rgba(0, 120, 212, 0.3);
 }
 
-/* Orders section */ 
-.orders-section {
-    margin-top: 30px;
+/* Cart Page Styles */
+.cart-page {
+    background-color: #f9fbff;
+    min-height: 100vh;
+    padding: 40px;
+    display: block;
 }
 
-.orders-section h2 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: 2a4d8f;
+.cart-title {
+    font-size: 1.8em;
+    color: #2a4d8f;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-.orders-section ul {
-    list-style: none;
-    padding-left: 0;
+.total-price {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2a4d8f;
 }
 
-.orders-section li {
-    margin-bottom: 10px;
-    padding: 10px;
+.empty-cart-message {
+    text-align: left;
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 10px;
+    padding: 12px;
     background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 6px  ;
+}
+
+
+/* Orders section */ 
+.orders {
+    padding: 40px;
+    background-color: #f9fbff;
+}
+
+.orders h2 {
+    color: #2a4d8f;
+    margin-bottom: 20px;
+}
+
+.order-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.order-item button {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 6px 12px;
     border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.order-item button:hover {
+    background-color: #005fa3;
+}
+
+.order-details {
+    margin-top: 10px;
+    background-color: #f1f5ff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.pending {
+color: orange;
+font-weight: bold;
+}
+
+.confirmed {
+    color: green;
+    font-weight: bold;
 }
