@@ -113,7 +113,7 @@ import CheckoutForm from "./components/CheckoutForm.vue";
 import Orders from "./components/Orders.vue";
 
 // Importing my images
-import calcIcon from "./assets/images/calc-Icon.jpg";
+import calcIcon from "./assets/images/calc-icon.jpg";
 import scienceIcon from "./assets/images/science-icon.jpg";
 import artIcon from "./assets/images/art-icon.jpg";
 import englishIcon from "./assets/images/english-icon.jpg";
